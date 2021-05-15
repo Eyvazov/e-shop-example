@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Back\SettingsController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin/panel', [IndexController::class, 'index'])->name('admin.index');
+Route::name('admin.')->prefix('/admin')->group(function(){
+    Route::get('/panel', [IndexController::class, 'index'])->name('index');
+    Route::get('/general-settings', [SettingsController::class, 'general'])->name('generalsettings');
+    Route::post('/general-settings', [SettingsController::class, 'generalPhotoUpdate'])->name('generalphotoupdate');
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

@@ -22,6 +22,9 @@ class CreateSettingsTable extends Migration
             $table->string('author');
             $table->string('keywords')->nullable();
             $table->integer('active')->default(1);
+            $table->string('email');
+            $table->string('officetel');
+            $table->string('mobile');
             $table->string('smtp_host')->nullable();
             $table->string('smtp_port')->nullable();
             $table->string('smtp_user')->nullable();

@@ -24,7 +24,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
+                    <a href="#" class="nav-link @if(Request::segment(2) == 'panel') active @endif">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Panel
@@ -32,19 +32,30 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
+                    <a href="#" class="nav-link @if(Request::segment(2) == 'general-settings') active @endif">
+                        <i class="nav-icon fas fa-cog"></i>
                         <p>
-                            Layout Options
+                            Parametrlər
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="{{route('admin.generalsettings')}}" class="nav-link @if(Request::segment(2) == 'general-settings') active @endif">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Ümumi Parametrlər</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="pages/layout/top-nav.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Top Navigation</p>
+                                <p>Sosial Şəbəkələr</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/layout/top-nav.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>SMTP Parametrləri</p>
                             </a>
                         </li>
                     </ul>
