@@ -35,96 +35,87 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="card card-primary">
                                     <div class="card-header">
-                                        <h3 class="card-title">Logo və Favikon</h3>
-                                    </div>
-                                    <!-- /.card-header -->
-                                    <!-- form start -->
-                                    <form method="POST" action="{{route('admin.generalphotoupdate')}}" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="card-body">
-                                            @if ($errors->any())
-                                                <div class="alert alert-danger">
-                                                    <ul>
-                                                        @foreach ($errors->all() as $error)
-                                                            <li>{{ $error }}</li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-                                            @endif
-                                            <div class="form-group">
-                                                <label for="logo">Logo</label>
-                                                <div class="input-group">
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="logo" name="logo">
-                                                        <label class="custom-file-label" for="logo">Logo seç</label>
-                                                    </div>
-                                                    <div class="input-group-append">
-                                                        <span class="input-group-text">Yüklə</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="favicon">Favikon</label>
-                                                <div class="input-group">
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="favicon" name="favicon">
-                                                        <label class="custom-file-label" for="favicon">Favikon seç</label>
-                                                    </div>
-                                                    <div class="input-group-append">
-                                                        <span class="input-group-text">Yüklə</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /.card-body -->
-
-                                        <div class="card-footer">
-                                            <button type="submit" class="btn btn-primary">Redaktə Et</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- /.card -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-md-6">
-                                <div class="card card-primary">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Logo və Favikon</h3>
+                                        <h3 class="card-title">Logo</h3>
                                     </div>
                                     <!-- /.card-header -->
                                     <!-- form start -->
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <form>
+                                            <form method="POST" action="{{route('admin.logo')}}" enctype="multipart/form-data">
+                                                @csrf
                                                 <div class="card-body">
-                                                        <label for="exampleInputFile">Logo &nbsp </label>
-                                                            <img src="{{asset('images/general/' . $settings->logo)}}" width="200" class="img-thumbnail" alt="">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" id="logo" name="logo">
+                                                                <label class="custom-file-label" for="logo">Logo seç</label>
+                                                            </div>
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text">Yüklə</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
+                                                        <button type="submit" class="btn btn-primary">Redaktə Et</button>
+                                                </div>
                                             </form>
                                         </div>
                                         <div class="col-md-6">
-                                            <form>
                                                 <div class="card-body">
-                                                        <label for="exampleInputFile">Favikon &nbsp </label>
-                                                        <img src="{{asset('images/general/' . $settings->favicon)}}" width="200" class="img-thumbnail" alt="">
-                                                    </div>
-                                            </form>
-                                        </div></div>
+                                                    <img src="{{asset('images/general/' . $settings->logo)}}" width="200" class="img-thumbnail" alt="">
+                                                </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
 
-                        <div class="row">
-                            <div class="col-12 col-sm-6">
                             </div>
                             <!-- /.col -->
-                            <div class="col-12 col-sm-6">
+                            <div class="col-md-6">
+                                <div class="card card-primary">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Favikon</h3>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <!-- form start -->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <form method="POST" action="{{route('admin.favicon')}}" enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" id="favicon" name="favicon">
+                                                                <label class="custom-file-label" for="favicon">Favikon seç</label>
+                                                            </div>
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text">Yüklə</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Redaktə Et</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-6">
+                                                <div class="card-body">
+                                                        <img src="{{asset('images/general/' . $settings->favicon)}}" width="200" class="img-thumbnail" alt="">
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.col -->
                         </div>

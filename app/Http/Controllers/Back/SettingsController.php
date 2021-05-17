@@ -15,27 +15,36 @@ class SettingsController extends Controller
         return view('back.settings.general', compact('settings'));
     }
 
-    public function generalPhotoUpdate(Request $request){
+    public function logoUpdate(Request $request){
         $request->validate([
-            'logo' =>'required|min:0|max:1024|mimes:jpg,jpeg,png',
-            'favicon' =>'required|min:0|max:1024|mimes:jpg,jpeg,png'
+            'logo' =>'required|min:0|max:1024|mimes:jpg,jpeg,png'
         ]);
 
         $settings = Settings::find(1);
         $settings->logo = $request->logo;
-        $settings->favicon = $request->favicon;
 
         if ($request->hasFile('logo')){
             $newLogoName = 'Logo-' . $settings->title . '.' . $request->logo->extension();
             $request->logo->move(public_path('/images/general'), $newLogoName);
             $settings->logo = $newLogoName;
         }
+        $settings->save();
+        return redirect()->back();
+    }
 
-            if ($request->hasFile('favicon')){
-                $newFaviconName = 'Favicon-' . $settings->title . '.' . $request->favicon->extension();
-                $request->favicon->move(public_path('/images/general'), $newFaviconName);
-                $settings->favicon = $newFaviconName;
-            }
+    public function faviconUpdate(Request $request){
+        $request->validate([
+            'favicon' =>'required|min:0|max:1024|mimes:jpg,jpeg,png'
+        ]);
+
+        $settings = Settings::find(1);
+        $settings->favicon = $request->favicon;
+
+        if ($request->hasFile('favicon')){
+            $newFaviconName = 'Favicon-' . $settings->title . '.' . $request->favicon->extension();
+            $request->favicon->move(public_path('/images/general'), $newFaviconName);
+            $settings->favicon = $newFaviconName;
+        }
         $settings->save();
         return redirect()->back();
     }
