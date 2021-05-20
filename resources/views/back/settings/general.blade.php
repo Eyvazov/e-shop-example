@@ -54,7 +54,7 @@
                                     <!-- form start -->
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <form method="POST" action="{{route('admin.logo')}}" enctype="multipart/form-data">
+                                            <form method="POST" action="{{route('admin.logoandfavicon')}}" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="card-body">
                                                     <div class="form-group">
@@ -91,7 +91,7 @@
                                     <!-- form start -->
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <form method="POST" action="{{route('admin.favicon')}}" enctype="multipart/form-data">
+                                            <form method="POST" action="{{route('admin.logoandfavicon')}}" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="card-body">
                                                     <div class="form-group">

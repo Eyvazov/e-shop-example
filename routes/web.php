@@ -16,8 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::name('admin.')->prefix('/admin')->group(function(){
-    Route::post('/general-settings', [SettingsController::class, 'logoUpdate'])->name('logo');
-    Route::post('/general-settings', [SettingsController::class, 'faviconUpdate'])->name('favicon');
+    Route::post('/general-settings', [SettingsController::class, 'logoFaviconUpdate'])->name('logoandfavicon');
     Route::get('/panel', [IndexController::class, 'index'])->name('index');
     Route::get('/general-settings', [SettingsController::class, 'general'])->name('generalsettings');
 });
