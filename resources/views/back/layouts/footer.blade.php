@@ -30,4 +30,7 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('back')}}/dist/js/pages/dashboard2.js"></script>
 </body>
+@jquery
+@toastr_js
+@toastr_render
 </html>

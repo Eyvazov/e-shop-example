@@ -98,6 +98,7 @@
                                                         <div class="input-group">
                                                             <div class="custom-file">
                                                                 <input type="file" class="custom-file-input" id="favicon" name="favicon">
+                                                                <input type="hidden" name="old" value="{{$settings->favicon}}">
                                                                 <label class="custom-file-label" for="favicon">Favikon seç</label>
                                                             </div>
                                                             <div class="input-group-append">
